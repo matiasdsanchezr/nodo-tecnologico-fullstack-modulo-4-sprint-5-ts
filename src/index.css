@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap");
+@import "tailwindcss";
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+:root {
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@theme {
+  --font-main: "Orbitron", sans-serif;
+
+  --color-primary: #dbdbdb;
+  --color-secondary: #c5c5c5;
+  --color-background-primary: #fff;
+
+  --color-dark-primary: #1e1e1e;
+  --color-dark-secondary: #121212;
+  --color-dark-background-primary: #161616;
+
+  --color-accent-teal: #4ecdc4;
+  --color-text-primary: #e0e0e0;
+  --color-text-secondary: #a0a0a0;
+
+  --color-button-primary: #4ecdc4;
+  --color-button-primary-hover: #6edcd4;
+  --color-button-primary-active: #3ebab4;
+
+  --color-button-secondary: #2c2c2c;
+  --color-button-secondary-hover: #3c3c3c;
+  --color-button-secondary-active: #1c1c1c;
+
+  --color-state-success: #2ecc71;
+  --color-state-warning: #f39c12;
+  --color-state-error: #e74c3c;
+  --color-state-info: #3498db;
+
+  --color-shadow-soft: rgba(0, 0, 0, 0.3);
+  --color-shadow-medium: rgba(0, 0, 0, 0.5);
+  --color-shadow-intense: rgba(0, 0, 0, 0.7);
+}
+
+@layer base {
+  @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap");
+
+  * {
+    @apply m-0 p-0 box-border;
+  }
+
+  html {
+    font-family: var(--font-main);
+  }
+
+  body {
+    @apply bg-background-primary m-0 flex flex-col min-w-[320px] min-h-[100vh];
+  }
+}
+
+@layer components {
+  .button {
+    @apply bg-slate-600 text-white font-medium px-4 py-2 rounded-md flex items-center
+      shadow-sm hover:bg-slate-700 hover:shadow-md active:bg-slate-800 
+      active:translate-y-px focus:outline-none focus:ring-2 focus:ring-slate-500 
+      focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none
+      transition-all duration-200 ease-in-out;
+  }
+
+  .input {
+    @apply bg-white px-2 rounded-md shadow-sm h-10 sm:text-sm border-black/20 border;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+::-webkit-scrollbar-track {
+  background: linear-gradient(
+    to bottom,
+    #b1b1b1 80px,
+    #dadbd6 80px,
+    #dadbd6 100%
+  );
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 0.815rem;
+  background-color: #484845;
+}
+
+html {
+  /* scrollbar-gutter: stable; */
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background: #dadbd6;
+}
